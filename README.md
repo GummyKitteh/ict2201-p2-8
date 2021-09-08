@@ -6,7 +6,7 @@ Teammates:
 
 (Kho Wen Jie - GummyKitteh)
 
-(Mohammed Suhaili Bin Suri - suhailii)
+(Muhamad Suhaili Bin Suri - suhailii)
 
 (Ain Munirah Binte Makmor - ainmm00)
 
