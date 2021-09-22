@@ -2,7 +2,7 @@
 
 Teammates:
 
-(Yip Jia Cheng - Jia Cheng)
+(Yip Jia Cheng - JCBlitzNight)
 
 (Kho Wen Jie - GummyKitteh)
 
