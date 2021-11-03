@@ -1,18 +1,17 @@
-////==================================================== MOVEMENT ====================================================
-//Blockly.Blocks['string_length'] = {
-//  init: function() {
-//    this.appendValueInput('VALUE')
-//        .setCheck('String')
-//        .appendField('length of');
-//    this.setOutput(true, 'Number');
-//    this.setColour(160);
-//    this.setTooltip('Returns number of letters in the provided text.');
-//    this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp');
-//  }
-//};
-//Blockly.JavaScript['text_length'] = function(block) {
-//  // String or array length.
-//  var argument0 = Blockly.JavaScript.valueToCode(block, 'VALUE',
-//      Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
-//  return [argument0 + '.length', Blockly.JavaScript.ORDER_MEMBER];
-//};
+//==================================================== MOVEMENT ====================================================
+Blockly.Blocks['turn_right'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Turn Right");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+Blockly.JavaScript['turn_right'] = function(block) {
+// Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
