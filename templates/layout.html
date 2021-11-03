@@ -1,20 +1,16 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
-
 <head>
     <!--CDN stuff-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+          integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+    <link rel="stylesheet" href={{ url_for('static', filename='css/main.css')}}>
     <title>Wreckvee</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a class="navbar-brand"><img src={{ url_for('static', filename='images/data.ico')}} /></a>
@@ -26,31 +22,17 @@ and open the template in the editor.
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/upload.html">Upload Dataset</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Worldmap.html">Covid-19 World Heat Map</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/MoreInfo.html">More Covid-19 Information</a>
+                    <a class="nav-link" href="/index.html">WreckVee</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <main class="container">
-        <section class="row" id="tablerow">
-            <div class="col-sm-12" id="tablediv">
+    <main class="container-fluid">
+        <section>
+<!--            <div class="">-->
                 {% block main %}{%endblock%}
                 {% block results_main %}{%endblock%}
-            </div>
-        </section>
-        <section class="row" id="chartrow">
-            <div class="col-sm-12" id="container">
-                {% block chart %}{%endblock%}
-            </div>
+<!--            </div>-->
         </section>
     </main>
     <!--jQuery-->
@@ -61,8 +43,6 @@ and open the template in the editor.
         integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
         crossorigin="anonymous"></script>
 </body>
-<footer class="container">
-    <p><em>Copyright &copy; 2020 Data Visualiser.</em></p>
+<footer>
 </footer>
-
 </html>
