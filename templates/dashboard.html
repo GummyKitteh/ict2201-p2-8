@@ -1,18 +1,12 @@
 {% extends "layout.html" %}
 {% block scripts %}
 <script src="https://unpkg.com/blockly"></script>
-<script defer src={{ url_for( 'static', filename='js/main.js')}}></script>
+<script src="blockly_compressed.js"></script>
+<script src="blocks_compressed.js"></script>
 <script defer src={{ url_for( 'static', filename='js/movement.js')}}></script>
 {% endblock %}
 {% block main %}
-<div id="content" style="display:flex;">
-  <div>
-    <div id="code" style="width: 320px; padding: 1px;"><pre/></div>
-    <button onclick="runCode();">Run</button>
-  </div>
-  <div id="blocklyDiv" style="height: 480px; width: 800px;"></div>
-</div>
-
+<div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
 <xml id="toolbox" style="display: none">
   <block type="controls_if"></block>
   <block type="controls_repeat_ext"></block>
@@ -21,16 +15,12 @@
   <block type="math_arithmetic"></block>
   <block type="text"></block>
   <block type="text_print"></block>
-<!--  <block type="string_length"></block>-->
+  <block type="turn_right"></block>
+
 </xml>
 
-<xml id="startBlocks" style="display: none">
-  <block type="text_print" id="0@)u5QVs/@*zX^XXw%Lp" x="35" y="21">
-    <value name="TEXT">
-      <shadow type="text" id="=[)BkyD!BK*AF%PcBi9;">
-        <field name="TEXT">Hello, World</field>
-      </shadow>
-    </value>
-  </block>
-</xml>
+{% endblock %}
+
+{% block footerscript %}
+<script defer src={{ url_for( 'static', filename='js/main.js')}}></script>
 {% endblock %}
