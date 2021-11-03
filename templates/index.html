@@ -1,14 +1,17 @@
 {% extends "layout.html" %}
+{% block css %}
+<link rel="stylesheet" href={{ url_for('static', filename='css/main.css')}}>
+{% endblock %}
 {% block main %}
 <div class="container">
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <form onsubmit="event.preventDefault()" class="box">
+                <form method="POST" enctype="multipart/form-data" class="box">
                     <h1>Connect To Car</h1>
                     <p class="text-muted"> Please enter the IP address shown on your Robotic Car!!</p>
                     <input type="text" name="" placeholder="IP-Address">
-                    <input type="submit" name="" value="Connect" href="#">
+                    <input type="submit" name="" value="Connect" href="dashboard.html">
                 </form>
             </div>
         </div>

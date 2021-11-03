@@ -10,9 +10,15 @@ app.config['UPLOAD_FOLDER'] = 'Data'
 def default():
     return render_template('index.html')
 
-@app.route('/index.html')
-def home():
+@app.route('/index.html', methods=['GET', 'POST'])
+def connect():
+    if request.method == 'POST':
+        return redirect(url_for('dashboard'))
     return render_template('index.html')
+
+@app.route('/dashboard.html')
+def dashboard():
+    return render_template('dashboard.html')
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port="5000")
