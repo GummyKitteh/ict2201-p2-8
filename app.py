@@ -20,5 +20,9 @@ def connect():
 def dashboard():
     return render_template('dashboard.html')
 
+@app.route('/challenge1.html')
+def challenge1():
+    return render_template('challenge1.html')
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port="5000")
