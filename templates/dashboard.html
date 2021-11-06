@@ -6,29 +6,45 @@
 <script defer src={{ url_for( 'static', filename='js/movement.js')}}></script>
 {% endblock %}
 {% block main %}
+<style>
+	.top-wrapper{
+	display:grid;
+	grid-template-columns: 50% 50%;
+	grid-column-gap:1em;
+	}
+	.top-wrapper > div{
+	background:#eee;
+	padding:1em;
+	}
+	.top-wrapper > div:nth-child(odd){
+	background:#ddd;
+	}
+</style>
 <header>
 	<div class="p-3 text-center bg-light">
 		<h1 class="mb-1">Dashboard</h1>
 	</div>
 </header>
 
-<div style="position:relative; float:left; top:20px; left:20px">
-<h1>Test</h1>
+<div class="top-wrapper">
+	<div>
+	<h1>Test</h1>
+	</div>
+	<!--Coding Environment Opening-->
+	<div id="blocklyDiv" style="height: 480px; width: 600px;">
+	<xml id="toolbox" style="display: none">
+	  <block type="controls_if"></block>
+	  <block type="controls_repeat_ext"></block>
+	  <block type="logic_compare"></block>
+	  <block type="math_number"></block>
+	  <block type="math_arithmetic"></block>
+	  <block type="text"></block>
+	  <block type="text_print"></block>
+	  <block type="turn_right"></block>
+	</xml>
+	</div>
+	<!--Coding Environment Closing-->
 </div>
-<!--Coding Environment Opening-->
-<div id="blocklyDiv" style="height: 480px; width: 600px; float: right; position: relative; top: 20px; right: 20px;">
-<xml id="toolbox" style="display: none">
-  <block type="controls_if"></block>
-  <block type="controls_repeat_ext"></block>
-  <block type="logic_compare"></block>
-  <block type="math_number"></block>
-  <block type="math_arithmetic"></block>
-  <block type="text"></block>
-  <block type="text_print"></block>
-  <block type="turn_right"></block>
-</xml>
-</div>
-<!--Coding Environment Closing-->
 
 
 {% endblock %}
