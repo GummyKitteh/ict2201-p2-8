@@ -90,20 +90,16 @@
             <!--Coding Environment Opening-->
         <div class="blockyLand topWrap" id="blocklyDiv" style="height: 480px; width: 600px;">
             <xml id="toolbox" style="display: none">
-                <block type="controls_if"></block>
                 <block type="controls_repeat_ext"></block>
-                <block type="logic_compare"></block>
-                <block type="math_number"></block>
-                <block type="math_arithmetic"></block>
-                <block type="text"></block>
-                <block type="text_print"></block>
                 <block type="turn_right"></block>
+                <block type="turn_left"></block>
+                <block type="move_forward"></block>
             </xml>
         </div>
             
         <div class="ResetRun">
             <div></div>
-            <button class="button" style="background-color: grey;">Reset</button>
+            <button class="button" onclick="clearworkspace()" style="background-color: grey;">Reset</button>
             <button class="button" style="background-color: red;">Run</button>
         </div>
             <!--Coding Environment Closing-->
