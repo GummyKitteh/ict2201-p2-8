@@ -18,6 +18,7 @@ __How to Run__
 
 __Development Workflow__
 - Brief and sufficient comprehensive description of team workflow using git/GitHub feature
+![DevFlow](https://user-images.githubusercontent.com/72865549/141294116-23fd437f-670f-4234-8ec7-0b9e22eabfec.PNG)
 
 __User Acceptance Test__
 - Embedded video running through all system test case we created (refined test case), 3 minutes long covering all system test case
