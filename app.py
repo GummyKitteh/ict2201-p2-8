@@ -24,5 +24,9 @@ def dashboard():
 def challenge1():
     return render_template('challenge1.html')
 
+@app.route('/viewchallenges.html')
+def viewchallenges():
+    return render_template('viewchallenges.html')
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port="5000")
