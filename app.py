@@ -24,6 +24,14 @@ def dashboard():
 def challenge1():
     return render_template('challenge1.html')
 
+@app.route('/challenge2.html')
+def challenge2():
+    return render_template('challenge2.html')
+
+@app.route('/challenge3.html')
+def challenge3():
+    return render_template('challenge3.html')
+
 @app.route('/viewchallenges.html')
 def viewchallenges():
     return render_template('viewchallenges.html')
