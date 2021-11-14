@@ -1,0 +1,32 @@
+#blocklyDiv
+{
+    height:380px;
+    width:600px;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 1px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 25px auto;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1em;
+}
+
+
+.ResetRun {
+    grid-column: 3/4;
+    justify-self: end;
+    padding-right: 2em;
+}

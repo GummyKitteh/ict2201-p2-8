@@ -14,7 +14,7 @@ Blockly.Blocks['turn_right'] = {
 };
 Blockly.JavaScript['turn_right'] = function(block) {
 // Assemble JavaScript into code variable.
-  var code = '...;\n';
+  var code = 'turn_right();\n';
   return code;
 };
 
@@ -32,7 +32,7 @@ Blockly.Blocks['turn_left'] = {
 };
 Blockly.JavaScript['turn_left'] = function(block) {
 // Assemble JavaScript into code variable.
-  var code = '...;\n';
+  var code = 'turn_left();\n';
   return code;
 };
 
@@ -50,9 +50,6 @@ Blockly.Blocks['move_forward'] = {
 };
 Blockly.JavaScript['move_forward'] = function(block) {
 // Assemble JavaScript into code variable.
-  var code = '...;\n';
+  var code = 'move_forward();\n';
   return code;
 };
-
-//==================================================== DO WHILE LOOP ===================================================
-

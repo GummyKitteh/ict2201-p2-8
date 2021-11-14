@@ -1,4 +1,8 @@
 {% extends "layout.html" %}
+{% block css %}
+<link rel="stylesheet" href={{ url_for('static', filename='css/blockly.css')}}>
+<link rel="stylesheet" href={{ url_for('static', filename='css/dashboard.css')}}>
+{% endblock %}
 {% block scripts %}
 <script src="https://unpkg.com/blockly"></script>
 <script src="blockly_compressed.js"></script>
@@ -6,123 +10,53 @@
 <script defer src={{ url_for( 'static', filename='js/movement.js')}}></script>
 {% endblock %}
 {% block main %}
-
-<style>
-    .button{
-        border: none;
-        color: white;
-        padding: 1px 32px;
-        text-align: center;
-        text-decoration:none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 8px;
-    }
-    .wrapper{
-        display:grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-gap:1em;
-    }
-    .carStatus{
-        justify-self: center;
-        align-self: center;
-        grid-column:2/3;
-    }
-    .ResetRun{
-        grid-column:3/4;
-        justify-self:end;
-        padding-right:2em;
-    }
-    .topWrap{
-        justify-self: start;
-        aligh-self: center;
-        grid-column:3/5;
-    }
-    .sensorStats{
-        justify-self: center;
-        display:grid;
-        grid-column: 2/3;
-        grid-row: 3/4;
-        grid-template-rows:1fr 2fr;
-        justify-self:start;
-    }
-    .sensorNested {
-        display:grid;
-        grid-template-columns: 1fr 1fr;
-        border: black 1px solid;
-        align-self:center;
-        justify-self:center;
-        padding-left:1em;
-        padding-right:1em;
-    }
-    .pastHistory{
-        display:grid;
-        grid-column:2/4;
-        grid-row:4/6;
-        justify-self: stretch;
-    }
-    .pastNested{
-        display:grid;
-        grid-template-columns: 8fr 1fr;
-    }
-    .historyListing{
-        display:grid;
-        grid-column:1/4;
-        border:black 1px solid;
-        align-self: stretch;
-        grid-auto-rows:300px;
-    }
-</style>
-
 <header style="background-color:#F3F1DA">
     <div class="p-3 text-center">
-	<h1 class="mb-1">Dashboard</h1>
+        <h1 class="mb-1">Dashboard</h1>
     </div>
 </header>
 
 <body style="background-color:#F3F1DA">
-    <div class="wrapper topWrap">
-        <div class="carStatus">
-            <h1>CAR STOPPED</h1>
-        </div>
-            <!--Coding Environment Opening-->
-        <div class="blockyLand topWrap" id="blocklyDiv" style="height: 480px; width: 600px;">
-            <xml id="toolbox" style="display: none">
-                <block type="controls_repeat_ext"></block>
-                <block type="turn_right"></block>
-                <block type="turn_left"></block>
-                <block type="move_forward"></block>
-            </xml>
-        </div>
-            
-        <div class="ResetRun">
-            <div></div>
-            <button class="button" onclick="clearworkspace()" style="background-color: grey;">Reset</button>
-            <button class="button" style="background-color: red;">Run</button>
-        </div>
-            <!--Coding Environment Closing-->
-        <div class="sensorStats">
-            <div>Real Time Data:</div>
-            <div class="sensorNested">
-                <div>Speed: 0m/s</div>
-                <div>Orientation: Stationary</div>
-                <div>Distance: 0m</div>
-            </div>
-        </div>
+<div class="wrapper topWrap">
+    <div class="carStatus">
+        <h1>CAR STOPPED</h1>
+    </div>
+    <!--Coding Environment Opening-->
+    <div class="blockyLand topWrap" id="blocklyDiv">
+        <xml id="toolbox" style="display: none">
+            <block type="controls_repeat_ext"></block>
+            <block type="turn_right"></block>
+            <block type="turn_left"></block>
+            <block type="move_forward"></block>
+        </xml>
+    </div>
 
-        <div class="pastHistory">
-            <div class="pastNested">
+    <div class="ResetRun">
+        <div></div>
+        <button class="button" onclick="clearworkspace()" style="background-color: grey;">Reset</button>
+        <button class="button" onclick="runCode()" style="background-color: red;">Run</button>
+    </div>
+    <!--Coding Environment Closing-->
+    <div class="sensorStats">
+        <div>Real Time Data:</div>
+        <div class="sensorNested">
+            <div>Speed: 0m/s</div>
+            <div>Orientation: Stationary</div>
+            <div>Distance: 0m</div>
+        </div>
+    </div>
+
+    <div class="pastHistory">
+        <div class="pastNested">
             <div>Past Instruction:</div>
             <button class="button" style="background-color: #008CBA;">Run</button>
             <div class="historyListing">Insert past instruction thingies</div>
-            </div>
         </div>
     </div>
+</div>
 </body>
 
 {% endblock %}
 {% block footerscript %}
-<script defer src={{ url_for( 'static', filename='js/main.js')}}></script>
+<script defer src={{ url_for( 'static', filename='js/workspace.js')}}></script>
 {% endblock %}
