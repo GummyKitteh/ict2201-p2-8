@@ -1,4 +1,7 @@
 {% extends "layout.html" %}
+{% block css %}
+<link rel="stylesheet" href={{ url_for('static', filename='css/blockly.css')}}>
+{% endblock %}
 {% block scripts %}
 <script src="https://unpkg.com/blockly"></script>
 <script src="blockly_compressed.js"></script>
@@ -6,36 +9,6 @@
 <script defer src={{ url_for( 'static', filename='js/movement.js')}}></script>
 {% endblock %}
 {% block main %}
-
-<style>
-    .button {
-        border: none;
-        color: white;
-        padding: 1px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 25px auto;
-        cursor: pointer;
-        border-radius: 8px;
-    }
-
-
-    .wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-gap: 1em;
-    }
-
-
-    .ResetRun {
-        grid-column: 3/4;
-        justify-self: end;
-        padding-right: 2em;
-    }
-</style>
-
 <header style="background-color:#F3F1DA">
     <div class="p-5 text-center">
         <h1 class="mb-3">Challenge 3</h1>
@@ -50,7 +23,7 @@
             </div>
             <div class="col">
                 <!--Coding Environment Opening-->
-                <div class="blockyLand" id="blocklyDiv" style="height: 480px; width: 600px;">
+                <div class="blockyLand" id="blocklyDiv">
                     <xml id="toolbox" style="display: none">
                         <block type="controls_repeat_ext"></block>
                         <block type="turn_right"></block>
@@ -58,11 +31,8 @@
                         <block type="move_forward"></block>
                     </xml>
                 </div>
-
-               
-                   
                     <button class="button" onclick="clearworkspace()" style="background-color: grey;">Reset</button>
-                    <button class="button" style="background-color: red;">Run</button>
+                    <button class="button" onclick="runCode()" style="background-color: red;">Run</button>
               
             </div>
         </div>
@@ -74,5 +44,5 @@
 
 {% endblock %}
 {% block footerscript %}
-<script defer src={{ url_for( 'static', filename='js/main.js')}}></script>
+<script defer src={{ url_for( 'static', filename='js/workspace.js')}}></script>
 {% endblock %}
