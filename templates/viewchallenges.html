@@ -1,7 +1,11 @@
 {% extends "layout.html" %}
+{% set active_page = "challenge" %}
+{% block css %}
+<link rel="stylesheet" href={{ url_for('static', filename='css/main.css')}}>
+{% endblock %}
 {% block main %}
 <header style="background-color:#F3F1DA">
-<div class="p-5 text-center">
+<div class="p-2 text-center">
     <h1 class="mb-3">Challenges</h1>
 </div>
 </header>
