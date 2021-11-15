@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% set active_page = "challenge" %}
+{% block css %}
+<link rel="stylesheet" href={{ url_for('static', filename='css/main.css')}}>
+{% endblock %}
+{% block main %}
+<header style="background-color:#F3F1DA">
+<div class="p-2 text-center">
+    <h1 class="mb-3">Challenges</h1>
+</div>
+</header>
+
+<body style="background-color:#F3F1DA">
+    <main class="container">
+        <div class="row">
+            <div class="mr-5 col-sm card">
+                <img class="card-img-top" src="static/images/challenge1.png" alt="Challenge1 image">
+                <div class="card-body bg-light">
+                    <h4 class="card-title">Challenge 1</h4>
+                    <p class="card-text">
+                        In this Challenge 1, you will be introduced to concepts
+                        behind computer programming while playing a simple maze game, Have Fun!
+                    </p>
+                    <a href="/challenge1.html" class="btn btn-primary">Go to Challenge 1</a>
+                </div>
+            </div>
+
+            <div class="col-sm card">
+                <img class="card-img-top" src="static/images/challenge2.png" alt="Challenge2 image">
+                <div class="card-body bg-light">
+                    <h4 class="card-title">Challenge 2</h4>
+                    <p class="card-text">
+                        Now, after getting the basic concepts of programming, try out Challenge 2 with a slightly more challenging maze. Have Fun!
+                    </p>
+                    <a href="/challenge2.html" class="btn btn-primary">Go to Challenge 2</a>
+                </div>
+            </div>
+
+            <div class="ml-5 col-sm card">
+                <img class="card-img-top" src="static/images/challenge3.png" alt="Challenge3 image">
+                <div class="card-body bg-light">
+                    <h4 class="card-title">Challenge 3</h4>
+                    <p class="card-text">
+                        In Challenge 3, a more complex maze with a slightly advanced programming is set for you. Try it out and Have Fun!
+                    </p>
+                    <br />
+                    <a href="/challenge3.html" class="btn btn-primary">Go to Challenge 3</a>
+                </div>
+            </div>
+
+        </div>
+            
+    
+    </main>
+</body>
+{% endblock %}
