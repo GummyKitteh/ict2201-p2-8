@@ -14,8 +14,6 @@ def default():
 @app.route('/index.html', methods=['GET', 'POST'])
 def connect():
     session.pop('ip', None)
-
-
     return render_template('index.html')
 
 @app.route('/dashboard.html', methods=['GET', 'POST'])
@@ -51,14 +49,33 @@ def challenge1():
 
 @app.route('/challenge2.html')
 def challenge2():
+    #to check for session id for everypage
+    if session.get("ip") is None:
+        flash('Not authenticated!')
+        return redirect(url_for('connect'))
+    elif session['ip'] == "192.168.1.1":
+        return render_template('challenge1.html')
     return render_template('challenge2.html')
 
 @app.route('/challenge3.html')
 def challenge3():
+    #to check for session id for everypage
+    if session.get("ip") is None:
+        flash('Not authenticated!')
+        return redirect(url_for('connect'))
+    elif session['ip'] == "192.168.1.1":
+        return render_template('challenge1.html')
     return render_template('challenge3.html')
 
 @app.route('/viewchallenges.html')
 def viewchallenges():
+     #to check for session id for everypage
+    if session.get("ip") is None:
+        flash('Not authenticated!')
+        return redirect(url_for('connect'))
+    elif session['ip'] == "192.168.1.1":
+        return render_template('challenge1.html')
+        
     return render_template('viewchallenges.html')
 
 if __name__ == "__main__":
