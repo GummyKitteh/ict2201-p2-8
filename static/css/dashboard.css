@@ -1,0 +1,44 @@
+    .carStatus{
+        justify-self: center;
+        align-self: center;
+        grid-column:2/3;
+    }
+    .topWrap{
+        justify-self: start;
+        aligh-self: center;
+        grid-column:3/5;
+    }
+    .sensorStats{
+        justify-self: center;
+        display:grid;
+        grid-column: 2/3;
+        grid-row: 3/4;
+        grid-template-rows:1fr 2fr;
+        justify-self:start;
+    }
+    .sensorNested {
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        border: black 1px solid;
+        align-self:center;
+        justify-self:center;
+        padding-left:1em;
+        padding-right:1em;
+    }
+    .pastHistory{
+        display:grid;
+        grid-column:2/4;
+        grid-row:4/6;
+        justify-self: stretch;
+    }
+    .pastNested{
+        display:grid;
+        grid-template-columns: 8fr 1fr;
+    }
+    .historyListing{
+        display:grid;
+        grid-column:1/4;
+        border:black 1px solid;
+        align-self: stretch;
+        grid-auto-rows:300px;
+    }
