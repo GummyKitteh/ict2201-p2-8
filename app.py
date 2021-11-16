@@ -51,8 +51,8 @@ def challenge2():
         flash('Not authenticated!')
         return redirect(url_for('connect'))
     elif session['ip'] == "192.168.1.1":
-        return render_template('challenge1.html', session=1)
-    return render_template('challenge2.html', session=1)
+        return render_template('challenge2.html', session=1)
+    # return render_template('challenge2.html', session=1)
 
 @app.route('/challenge3.html')
 def challenge3():
@@ -61,8 +61,8 @@ def challenge3():
         flash('Not authenticated!')
         return redirect(url_for('connect'))
     elif session['ip'] == "192.168.1.1":
-        return render_template('challenge1.html', session=1)
-    return render_template('challenge3.html', session=1)
+        return render_template('challenge3.html', session=1)
+    # return render_template('challenge3.html', session=1)
 
 @app.route('/viewchallenges.html')
 def viewchallenges():
@@ -71,9 +71,9 @@ def viewchallenges():
         flash('Not authenticated!')
         return redirect(url_for('connect'))
     elif session['ip'] == "192.168.1.1":
-        return render_template('challenge1.html', session=1)
+        return render_template('viewchallenges.html', session=1)
         
-    return render_template('viewchallenges.html', session=1)
+    # return render_template('viewchallenges.html', session=1)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port="5000")
