@@ -14,11 +14,16 @@ Gantt Chart: https://docs.google.com/spreadsheets/d/1oOY_R2uJliTYY8XZYEg1JRF9I8w
 ## To-Do-Readme
 
 __How to Run__
-- Do this and that
+- Install Python (at least Version 3.6)
+- Open command prompt in Administrator
+- Navigate command prompt to directory containing requirements.txt and app.py
+- Run `pip install -r requirements.txt` to install required modules
+- Run `python app.py` to run portal and keep command prompt running
+- Open Internet Edge or Google Chrome and enter the URL `http://localhost:5000/`
 
 __Development Workflow__
 - Brief and sufficient comprehensive description of team workflow using git/GitHub feature
-![DevFlow](https://user-images.githubusercontent.com/72865549/141294116-23fd437f-670f-4234-8ec7-0b9e22eabfec.PNG)
+![12345](https://user-images.githubusercontent.com/72865549/142191784-7b786d84-bbdf-4e00-8d71-c27a1957ddaa.JPG)
 
 __User Acceptance Test__
 - Embedded video running through all system test case we created (refined test case), 3 minutes long covering all system test case
