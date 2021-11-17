@@ -82,7 +82,7 @@ function check_answer(num) {
             }
             break;
         case 3:
-            let ans3 = [1,3,1,2,1];
+            let ans3 = [1,1,3,1,1,3,1,2,1,1,2,1,1,3,1];
             if (arrayEquals(instructionArray,ans3)) {
                 console.log("Challenge 3 complete");
                 $('#completedModal').modal('show');
