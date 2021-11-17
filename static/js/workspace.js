@@ -1,3 +1,4 @@
+const instructionArray = [];
 var workspace = Blockly.inject('blocklyDiv', {
   toolbox: document.getElementById('toolbox'),
   trashcan: true,
@@ -6,21 +7,22 @@ var workspace = Blockly.inject('blocklyDiv', {
 
 function clearworkspace() {
  workspace.clear();
+ instructionArray.splice(0, instructionArray.length);
  console.log("Coding environment cleared")
 }
 function move_forward() {
-    let x = "go forward";
-    console.log(x);
+    let value = 1
+    instructionArray.push(value)
 }
 
 function turn_right() {
-    let x = "go right";
-    console.log(x);
+    let value = 2
+    instructionArray.push(value)
 }
 
 function turn_left() {
-    let x = "go left";
-    console.log(x);
+    let value = 3
+    instructionArray.push(value)
 }
 
 function showCode() {
@@ -40,7 +42,9 @@ function runCode() {
     try {
         //execute the argument which is a function
         eval(code);
+        console.log(instructionArray);
     } catch (e) {
         alert(e);
     }
+    clearworkspace();
 }

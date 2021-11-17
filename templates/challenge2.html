@@ -8,7 +8,7 @@
 <script src="blockly_compressed.js"></script>
 <script src="blocks_compressed.js"></script>
 <script defer src={{ url_for( 'static', filename='js/movement.js')}}></script>
-<!--<script defer src={{ url_for( 'static', filename='js/challenge.js')}}></script>-->
+<script defer src={{ url_for( 'static', filename='js/challenge.js')}}></script>
 {% endblock %}
 {% block main %}
 <header style="background-color:#F3F1DA">
@@ -30,6 +30,7 @@
                  title="Drag and drop blocks of instructions from the left to the workspace on the right">
                 <xml id="toolbox" style="display: none">
                     <block type="controls_repeat_ext"></block>
+                    <block type="math_number"></block>
                     <block type="turn_right"></block>
                     <block type="turn_left"></block>
                     <block type="move_forward"></block>

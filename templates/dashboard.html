@@ -9,6 +9,7 @@
 <script src="blockly_compressed.js"></script>
 <script src="blocks_compressed.js"></script>
 <script defer src={{ url_for( 'static', filename='js/movement.js')}}></script>
+<script defer src={{ url_for( 'static', filename='js/challenge.js')}}></script>
 {% endblock %}
 {% block main %}
 <header style="background-color:#F3F1DA">
@@ -23,19 +24,23 @@
         <h1>CAR STOPPED</h1>
     </div>
     <!--Coding Environment Opening-->
-    <div class="blockyLand topWrap" id="blocklyDiv">
+    <div class="blockyLand topWrap" id="blocklyDiv" data-toggle="tooltip" data-placement="top"
+         title="Drag and drop blocks of instructions from the left to the workspace on the right">
         <xml id="toolbox" style="display: none">
             <block type="controls_repeat_ext"></block>
+            <block type="math_number"></block>
             <block type="turn_right"></block>
             <block type="turn_left"></block>
             <block type="move_forward"></block>
         </xml>
     </div>
-
     <div class="ResetRun">
-        <div></div>
-        <button class="button" onclick="clearworkspace()" style="background-color: grey;">Reset</button>
-        <button class="button" onclick="runCode()" style="background-color: red;">Run</button>
+        <button class="button btn-success" onclick="clearworkspace()">
+            <a data-toggle="tooltip" data-placement="bottom" title="Click to clear the workspace">Reset</a>
+        </button>
+        <button class="button btn-danger" onclick="runCode()">
+            <a data-toggle="tooltip" data-placement="bottom" title="Click to execute the blocks of instructions">Run</a>
+        </button>
     </div>
     <!--Coding Environment Closing-->
     <div class="sensorStats">
