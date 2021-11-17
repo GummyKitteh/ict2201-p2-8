@@ -34,11 +34,12 @@
     .pastNested{
         display:grid;
         grid-template-columns: 8fr 1fr;
+        grid-template-rows: 1fr;
     }
     .historyListing{
         display:grid;
         grid-column:1/4;
         border:black 1px solid;
         align-self: stretch;
-        grid-auto-rows:300px;
+        grid-auto-rows:200px;
     }
