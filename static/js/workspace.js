@@ -71,7 +71,7 @@ function check_answer(num) {
             }
             break;
         case 2:
-            let ans2 = [1,2,1,3,1,2,1,3,1,2,1,3,1,2,1,3];
+            let ans2 = [1,3,1,2,1,3,1,2,1,3,1,2,1,3,1,2,1];
             if (arrayEquals(instructionArray,ans2)) {
                 console.log("Challenge 2 complete");
                  $('#completedModal').modal('show');
