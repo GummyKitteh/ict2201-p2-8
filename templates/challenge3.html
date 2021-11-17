@@ -18,82 +18,107 @@
 </header>
 
 <body style="background-color:#F3F1DA">
-<main class="container">
-    <div class="row">
-        <div class="col">
-            <img class="img-fluid" src="static/images/challenge3.png" alt="Challenge3 image" data-toggle="tooltip"
-                 data-placement="top" title="Complete the challenge using the map">>
+    <main class="container">
+        <div class="row">
+            <div class="col">
+                <img class="img-fluid" src="static/images/challenge3.png" alt="Challenge3 image" data-toggle="tooltip"
+                     data-placement="top" title="Complete the challenge using the map">>
+            </div>
+            <div class="col">
+                <!--Coding Environment Opening-->
+                <div class="blockyLand" id="blocklyDiv" data-toggle="tooltip" data-placement="top"
+                     title="Drag and drop blocks of instructions from the left to the workspace on the right">
+                    <xml id="toolbox" style="display: none">
+                        <block type="controls_repeat_ext"></block>
+                        <block type="math_number"></block>
+                        <block type="turn_right"></block>
+                        <block type="turn_left"></block>
+                        <block type="move_forward"></block>
+                    </xml>
+                </div>
+                <button class="button btn-success" onclick="clearworkspace()">
+                    <a data-toggle="tooltip" data-placement="bottom" title="Click to clear the workspace">Reset</a>
+                </button>
+                <button class="button btn-danger" onclick="runCode()">
+                    <a data-toggle="tooltip" data-placement="bottom" title="Click to execute the blocks of instructions">Run</a>
+                </button>
+                <button class="button btn-warning" data-toggle="modal" data-target="#myModal">
+                    <a data-toggle="tooltip" data-placement="bottom" title="Click for hints">Hint</a>
+                </button>
+                <!-- Hint Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Hint for Challenge #3</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <p><b>Now, try to apply what you have done for the previous two challenges. Use 2 Repeat blocks.</b></p>
+                                <img class="img-fluid" src="static/images/challenge3_hint1.png" alt="Challenge3 hint image" />
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" data-target="#viewanswer" data-toggle="modal" data-dismiss="modal">View Answer</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Answer Modal -->
+                <div id="viewanswer" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Answer for Challenge #3</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <p><b>The answer to Challenge #3:</b></p>
+                                <img class="img-fluid" src="static/images/challenge3_hint2.png" alt="Challenge3 answer image" />
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" data-target="#myModal" data-toggle="modal" data-dismiss="modal">Back to Hint</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Success Modal -->
+                <div id="completedModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Congrats, You have completed Challenge #3</h4>
+                            </div>
+                            <div class="modal-body">
+                                <img class="img-fluid" src="static/images/challenge3_finish.png" alt="Challenge3 finish" />
+                                <p><b>Unfortunately this is the final challenge. :(</b></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-info" data-dismiss="modal">Redo</button>
+                                <a href="/viewchallenges.html" class="btn btn-primary">Return to main page</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Failure Modal -->
+                <div id="wrongModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Wrong. Please Try again!! </h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col">
-            <!--Coding Environment Opening-->
-            <div class="blockyLand" id="blocklyDiv" data-toggle="tooltip" data-placement="top"
-                 title="Drag and drop blocks of instructions from the left to the workspace on the right">
-                <xml id="toolbox" style="display: none">
-                    <block type="controls_repeat_ext"></block>
-                    <block type="math_number"></block>
-                    <block type="turn_right"></block>
-                    <block type="turn_left"></block>
-                    <block type="move_forward"></block>
-                </xml>
-            </div>
-            <button class="button btn-success" onclick="clearworkspace()">
-                <a data-toggle="tooltip" data-placement="bottom" title="Click to clear the workspace">Reset</a>
-            </button>
-            <button class="button btn-danger" onclick="runCode()">
-                <a data-toggle="tooltip" data-placement="bottom" title="Click to execute the blocks of instructions">Run</a>
-            </button>
-            <button class="button btn-warning" data-toggle="modal" data-target="#myModal">
-                <a data-toggle="tooltip" data-placement="bottom" title="Click for hints">Hint</a>
-            </button>
-            <!-- Modal -->
-            <div id="myModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Hint for Challenge #3</h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <p><b>There are 5 blocks required to complete the challenge</b></p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="completedModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Congrats, You have completed Challenge #3</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p><b>Unfortunately this is the final challenge. :(</b></p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-info" data-dismiss="modal">Redo</button>
-                            <a href="/viewchallenges.html" class="btn btn-primary">Return to main page</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="wrongModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Wrong. Please Try again!! </h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
+    </main>
 </body>
 
 {% endblock %}
