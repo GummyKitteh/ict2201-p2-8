@@ -25,13 +25,6 @@ function turn_left() {
     instructionArray.push(value)
 }
 
-function showCode() {
-    // Generate JavaScript code and display it.
-    Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-    var code = Blockly.JavaScript.workspaceToCode(workspace);
-    alert(code);
-}
-
 function runCode() {
     // Generate JavaScript code and run it.
     window.LoopTrap = 1000;
@@ -43,8 +36,71 @@ function runCode() {
         //execute the argument which is a function
         eval(code);
         console.log(instructionArray);
+        pathname = window.location.pathname;
+        console.log(pathname);
+        switch (pathname){
+            case "/challenge1.html":
+                check_answer(1);
+                break;
+            case "/challenge2.html":
+                check_answer(2);
+                break;
+            case "/challenge3.html":
+                check_answer(3);
+                break;
+            default:
+                console.log("Dashboard");
+        }
     } catch (e) {
         alert(e);
     }
     clearworkspace();
 }
+
+function check_answer(num) {
+    switch (num){
+        case 1:
+            let ans1 = [1,3,1,2,1];
+            if (arrayEquals(instructionArray,ans1)) {
+                console.log("Challenge 1 complete");
+                $('#completedModal').modal('show');
+            }
+            else {
+                console.log("Answer wrong!!");
+                $('#wrongModal').modal('show');
+            }
+            break;
+        case 2:
+            let ans2 = [1,2,1,3,1,2,1,3,1,2,1,3,1,2,1,3];
+            if (arrayEquals(instructionArray,ans2)) {
+                console.log("Challenge 2 complete");
+                 $('#completedModal').modal('show');
+            }
+            else {
+                console.log("Answer wrong!!");
+                $('#wrongModal').modal('show');
+            }
+            break;
+        case 3:
+            let ans3 = [1,3,1,2,1];
+            if (arrayEquals(instructionArray,ans3)) {
+                console.log("Challenge 3 complete");
+                $('#completedModal').modal('show');
+            }
+            else {
+                console.log("Answer wrong!!");
+                $('#wrongModal').modal('show');
+            }
+            break;
+        default:
+            console.log("Something is Wrong !!!");
+    }
+}
+
+function arrayEquals(a, b) {
+    return Array.isArray(a) &&
+        Array.isArray(b) &&
+        a.length === b.length &&
+        a.every((val, index) => val === b[index]);
+}
+
