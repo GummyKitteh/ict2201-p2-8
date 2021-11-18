@@ -49,6 +49,7 @@ function runCode() {
                 check_answer(3);
                 break;
             default:
+                save(instructionArray);
                 console.log("Dashboard");
         }
     } catch (e) {
@@ -104,3 +105,26 @@ function arrayEquals(a, b) {
         a.every((val, index) => val === b[index]);
 }
 
+function save(data){
+    var today = new Date();
+    var date = ((today.getDate() < 10)?"0":"") + today.getDate() +"/"+(((today.getMonth()+1) < 10)?"0":"") + (today.getMonth()+1) +"/"+ today.getFullYear();
+    var time = ((today.getHours() < 10)?"0":"") + today.getHours() +":"+ ((today.getMinutes() < 10)?"0":"") + today.getMinutes() +":"+ ((today.getSeconds() < 10)?"0":"") + today.getSeconds();
+    var dateTime = date+' '+time;
+    data.push(dateTime);
+    
+    //LocalStorage with variable instructionHistory
+    if(localStorage.getItem('instructionHistory') == null){
+        localStorage.setItem('instructionHistory', '[]');
+    }
+    //Fetch old data
+    var old_data = JSON.parse(localStorage.getItem('instructionHistory'));
+    
+    //Append push new data
+    old_data.push(data);
+    if (old_data.length > 5){
+        old_data.shift();
+    }
+    
+    //Save old + new data
+    localStorage.setItem('instructionHistory', JSON.stringify(old_data));
+}
