@@ -59,8 +59,12 @@
     <div class="pastHistory">
         <div class="pastNested">
             <div>Past Instruction:</div>
-            <button type="button" onclick="xmlToWorkspace()" class="btn btn-primary btn-sm" style="background-color: #008CBA;">Run</button>
-            <div class="historyListing">Insert past instruction thingies</div>
+            <!--<button type="button" onclick="xmlToWorkspace()" class="btn btn-primary btn-sm" style="background-color: #008CBA;">Run</button>-->
+            <div class="historyListing">
+                <p id="firstRow"></p>
+                <p id="secondRow"></p>
+                <p id="thirdRow"></p>
+            </div>
         </div>
     </div>
 </div>
@@ -69,4 +73,5 @@
 {% endblock %}
 {% block footerscript %}
 <script defer src={{ url_for( 'static', filename='js/workspace.js')}}></script>
+<script>window.onload = function(){ viewPast(); };</script>
 {% endblock %}
