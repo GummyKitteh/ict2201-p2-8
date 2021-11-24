@@ -1,4 +1,5 @@
-const instructionArray = [];
+var instructionArray = [];
+var storexml ="";
 var workspace = Blockly.inject('blocklyDiv', {
   toolbox: document.getElementById('toolbox'),
   trashcan: true,
@@ -10,6 +11,18 @@ function clearworkspace() {
  instructionArray.splice(0, instructionArray.length);
  console.log("Coding environment cleared")
 }
+function saveToXML() {
+    var xmlDom = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
+    var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
+    storexml = xmlText;
+    console.log(storexml);
+}
+
+function xmlToWorkspace() {
+    var xml = Blockly.Xml.textToDom(storexml);
+    Blockly.Xml.domToWorkspace(xml, workspace);
+}
+
 function move_forward() {
     let value = 1
     instructionArray.push(value)
@@ -50,6 +63,7 @@ function runCode() {
                 break;
             default:
                 save(instructionArray);
+                saveToXML();
                 console.log("Dashboard");
         }
     } catch (e) {
