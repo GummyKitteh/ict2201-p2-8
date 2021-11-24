@@ -1,4 +1,5 @@
 var instructionArray = [];
+var historyInstruct = [];
 var storexml ="";
 var workspace = Blockly.inject('blocklyDiv', {
   toolbox: document.getElementById('toolbox'),
@@ -9,6 +10,7 @@ var workspace = Blockly.inject('blocklyDiv', {
 function clearworkspace() {
  workspace.clear();
  instructionArray.splice(0, instructionArray.length);
+ historyInstruct.splice(0, historyInstruct.length);
  console.log("Coding environment cleared")
 }
 function saveToXML() {
@@ -26,16 +28,19 @@ function xmlToWorkspace() {
 function move_forward() {
     let value = 1
     instructionArray.push(value)
+    historyInstruct.push("Move Forward")
 }
 
 function turn_right() {
     let value = 2
     instructionArray.push(value)
+    historyInstruct.push("Turn Right")
 }
 
 function turn_left() {
     let value = 3
     instructionArray.push(value)
+    historyInstruct.push("Turn Left")
 }
 
 function runCode() {
@@ -62,7 +67,7 @@ function runCode() {
                 check_answer(3);
                 break;
             default:
-                save(instructionArray);
+                save(historyInstruct);
                 saveToXML();
                 console.log("Dashboard");
         }
@@ -135,10 +140,47 @@ function save(data){
     
     //Append push new data
     old_data.push(data);
-    if (old_data.length > 5){
+    if (old_data.length > 3){
         old_data.shift();
     }
-    
     //Save old + new data
     localStorage.setItem('instructionHistory', JSON.stringify(old_data));
+    
+    //Counting number of items in instructionHistory
+    var noItems = JSON.parse(localStorage.instructionHistory).length;
+    
+    //Save them for displaying
+    if (noItems === 1){
+        localStorage.setItem('firstrow', JSON.stringify(old_data[0]));
+    }
+    if (noItems === 2){
+        localStorage.setItem('firstrow', JSON.stringify(old_data[0]));
+        localStorage.setItem('secondrow', JSON.stringify(old_data[1]));
+    }
+    if (noItems === 3){
+        localStorage.setItem('firstrow', JSON.stringify(old_data[0]));
+        localStorage.setItem('secondrow', JSON.stringify(old_data[1]));
+        localStorage.setItem('thirdrow', JSON.stringify(old_data[2]));
+    }
+    viewPast();
+}
+function viewPast(){
+    if(localStorage.getItem('firstrow') != null){
+        var checkArray1 = JSON.parse(localStorage.getItem('firstrow'));
+        let datetime1 = checkArray1[checkArray1.length - 1];
+        checkArray1.pop();
+        document.getElementById('firstRow').innerHTML = datetime1 + " - " + checkArray1.join(" > ");
+        if(localStorage.getItem('secondrow') != null){
+            var checkArray2 = JSON.parse(localStorage.getItem('secondrow'));
+            let datetime2 = checkArray2[checkArray2.length - 1];
+            checkArray2.pop();
+            document.getElementById('secondRow').innerHTML = datetime2 + " - " + checkArray2.join(" > ");
+            if(localStorage.getItem('thirdrow') != null){
+                var checkArray3 = JSON.parse(localStorage.getItem('thirdrow'));
+                let datetime3 = checkArray3[checkArray3.length - 1];
+                checkArray3.pop();
+                document.getElementById('thirdRow').innerHTML = datetime3 + " - " + checkArray3.join(" > ");
+            }
+        }
+    }
 }
