@@ -1,4 +1,5 @@
 # class Instruction:
+import sys
 
 
 class Car: 
@@ -39,12 +40,20 @@ class Car:
 
 
 class CarController:
-    def detectObstacle(self):
-        if Car.getStatus == "obstacle":
-            self.stopCar()
+    def stopCar():
+        Car.setStatus("stopped")
+        return
+
+    def detectObstacle(car0):
+        if car0.getStatus() == "obstacle":
+            print('OBSTACLE DETECTED!')
+            CarController.stopCar()
             return True
         else:
+            print("NO OBSTACLE")
             return False
+
+        
         
 
     def detectEndPoint(self): #not needed?
@@ -53,9 +62,7 @@ class CarController:
         else:
             return False
 
-    def stopCar():
-        Car.setStatus("stopped")
-        return
+    
 
     def executeInstruction(request, carData, db):
         postData = request.form
@@ -80,9 +87,27 @@ class CarController:
         db.session.commit()
 
         return
-    
-   
+
 
     
+   
+# def testCase1():
+#     testCar = Car("command",10,50,"obstacle")
+#     cc = CarController
+#     print(cc.detectObstacle(testCar))
+#     print(testCar.getStatus())
+
+
+
+        
+        
+        
+    
+    
+    
+    
+# testCase1()  
+
+
     
 
