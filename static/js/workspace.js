@@ -69,7 +69,8 @@ function runCode() {
             default:
                 save(historyInstruct);
                 saveToXML();
-                console.log("Dashboard");
+                //function to post command
+                postCommand();
         }
     } catch (e) {
         alert(e);
@@ -84,6 +85,7 @@ function check_answer(num) {
             if (arrayEquals(instructionArray,ans1)) {
                 console.log("Challenge 1 complete");
                 $('#completedModal').modal('show');
+                postCommand();
             }
             else {
                 console.log("Answer wrong!!");
@@ -95,6 +97,8 @@ function check_answer(num) {
             if (arrayEquals(instructionArray,ans2)) {
                 console.log("Challenge 2 complete");
                  $('#completedModal').modal('show');
+                 postCommand();
+
             }
             else {
                 console.log("Answer wrong!!");
@@ -106,6 +110,8 @@ function check_answer(num) {
             if (arrayEquals(instructionArray,ans3)) {
                 console.log("Challenge 3 complete");
                 $('#completedModal').modal('show');
+                postCommand();
+
             }
             else {
                 console.log("Answer wrong!!");
@@ -184,3 +190,28 @@ function viewPast(){
         }
     }
 }
+
+function postCommand(){
+    exe = "/" + instructionArray.toString() + ",last/"; // the format for car to read 
+    console.log(exe);
+    $.ajax({
+        url: '/new',
+        type: 'post',
+        data: {'command':exe},
+        success:function(){
+            //alert user maybe
+        }
+    });
+
+
+
+}
+
+
+//OR
+ setInterval(function(){
+    $( "#speed" ).load(window.location.href + " #speed" ); 
+    $( "#distance" ).load(window.location.href + " #distance" ); 
+    $( "#status" ).load(window.location.href + " #status" ); 
+
+ }, 5000);
