@@ -24,9 +24,11 @@
         <div class="sensorStats">
             <div style="font-weight:bold;">Real Time Data:</div>
             <div class="sensorNested">
-                <div>Speed: 0m/s</div>
-                <div>Distance: 0m</div>
-                <div>State: Stopped</div>
+                {% for carData in carData %}
+            <div id="speed">Speed: {{ carData.speed }} (m/s)</div>
+            <div id="status"> Status: {{ carData.status }}</div>
+            <div id="distance">Distance: {{ carData.distance }} (m)</div>
+            {% endfor %}
             </div>
         </div>
     </div>
