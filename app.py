@@ -34,7 +34,7 @@ def show_data():
    return render_template('carData.html', carData = carData.query.all())
 
 @app.route('/new', methods = ['GET', 'POST'])
-def new(): #change to send instruction
+def instruction():
     if request.method == 'POST':
         CarController.executeInstruction(request, carData, db)
         return render_template('dashboard.html')
