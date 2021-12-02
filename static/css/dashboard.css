@@ -19,7 +19,6 @@
     .sensorNested {
         display:grid;
         grid-template-columns: 1fr 1fr;
-        border: black 1px solid;
         align-self:center;
         justify-self:center;
         padding-left:1em;
@@ -29,7 +28,7 @@
         display:grid;
         grid-column:2/4;
         grid-row:4/6;
-        justify-self: stretch;
+        justify-self: center;
     }
     .pastNested{
         display:grid;
@@ -39,7 +38,6 @@
     .historyListing{
         display:grid;
         grid-column:1/4;
-        border:black 1px solid;
         align-self: stretch;
         grid-auto-flow: row;
         padding: 10px;
