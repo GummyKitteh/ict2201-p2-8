@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request,session, url_for, flash, send_from_directory, request,json, jsonify
 from werkzeug.utils import redirect
 from flask_sqlalchemy import SQLAlchemy
-from car import CarController
+from car import CarController, Car, carData
 
 import os
 
@@ -12,23 +12,16 @@ app.config['UPLOAD_FOLDER'] = 'Data'
 app.config ['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///carData.sqlite3'
 
 db = SQLAlchemy(app)
-class carData(db.Model):
-   id = db.Column('car_id', db.Integer, primary_key = True)
-   command = db.Column(db.String(100))
-   speed = db.Column(db.String(50))  
-   distance = db.Column(db.String(200))
-   status = db.Column(db.String(10))
 
-def __init__(self, command, speed, distance,status):
-   self.command = command
-   self.speed = speed
-   self.distance = distance
-   self.status = status
 
 db.create_all()
 
+#page that car retrieve command
+@app.route('/car') 
+def carCommand():
+    return render_template('car.html', carData = carData.query.all())
 
-
+#page that displays car data
 @app.route('/carData')
 def show_data():
    return render_template('carData.html', carData = carData.query.all())
@@ -36,10 +29,28 @@ def show_data():
 @app.route('/new', methods = ['GET', 'POST'])
 def instruction():
     if request.method == 'POST':
-        CarController.executeInstruction(request, carData, db)
+        postData = request.form
+        command = str(postData['command'])
+        car = carData(command=command, speed="0",distance="0",status="executing")
+        db.session.query(carData).delete()
+        db.session.commit()
+        db.session.add(car)
+        db.session.commit()
+        CarController.executeInstruction(car)
         return render_template('dashboard.html')
+
     elif request.method == 'GET':
-        CarController.sendData(request, carData, db)
+        command = request.args.get('command')
+        speed = request.args.get('speed')
+        distance = request.args.get('distance')
+        status = request.args.get('status')
+        car = carData(command=command,speed=speed,distance=distance,status=status)
+        db.session.query(carData).delete()
+        db.session.commit()
+        db.session.add(car)
+        db.session.commit()
+
+        CarController.sendData(car)
         return render_template('dashboard.html')
 
          
@@ -50,7 +61,7 @@ def default():
     return render_template('index.html', session=0)
 
 @app.route('/index.html', methods=['GET', 'POST'])
-def connectCar():
+def connect():
     session.pop('ip', None)
     return render_template('index.html', session=0)
 

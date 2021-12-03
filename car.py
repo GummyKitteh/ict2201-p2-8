@@ -1,6 +1,20 @@
 # class Instruction:
-import sys
+from flask_sqlalchemy import SQLAlchemy
 
+db = SQLAlchemy()
+
+class carData(db.Model):
+   id = db.Column('car_id', db.Integer, primary_key = True)
+   command = db.Column(db.String(100))
+   speed = db.Column(db.String(50))  
+   distance = db.Column(db.String(200))
+   status = db.Column(db.String(10))
+
+def __init__(self, command, speed, distance,status):
+   self.command = command
+   self.speed = speed
+   self.distance = distance
+   self.status = status
 
 class Car: 
     def __init__(self, command, speed, distance, status):
@@ -20,17 +34,9 @@ class Car:
 
     def getStatus(self):
         return self.status
-
-    def setCommand(self,command):
-        self.command = command
-        return 
-
+        
     def setSpeed(self,speed):
         self.speed = speed
-        return 
-
-    def setDistance(self,distance):
-        self.distance = distance
         return 
 
     def setStatus(self,status):
@@ -38,76 +44,38 @@ class Car:
         return 
 
 
-
 class CarController:
-    def stopCar():
-        Car.setStatus("stopped")
+    def stopCar(carObj):
+        carObj.setStatus("stopped")
+        carObj.setSpeed(0)
         return
 
-    def detectObstacle(car0):
-        if car0.getStatus() == "obstacle":
-            print('OBSTACLE DETECTED!')
-            CarController.stopCar()
-            return True
-        else:
-            print("NO OBSTACLE")
-            return False
-
-        
-        
-
-    def detectEndPoint(self): #not needed?
-        if Car.getStatus == "completed":
+    def detectObstacle(carObj):
+        if carObj.getStatus() == "obstacle":
+            CarController.stopCar(carObj)
             return True
         else:
             return False
 
+    def detectEndPoint(carObj): 
+        if carObj.getStatus() == "completed":
+            CarController.stopCar(carObj)
+            return True
+        else:
+            return False
+
+    def executeInstruction(carData):
+        carObject = Car(carData.command,0,0,"executing")
+
+        return carObject
     
+    def sendData(carData):
+        carObject = Car(carData.command,carData.speed,carData.distance,carData.status)
 
-    def executeInstruction(request, carData, db):
-        postData = request.form
-        json = str(postData['command'])
-        car = carData(command=json, speed="0",distance="0",status="executing") 
-        db.session.query(carData).delete()
-        db.session.commit()
-        db.session.add(car)
-        db.session.commit()
-            
-        return 
-    
-    def sendData(request, carData, db):
-        command = request.args.get('command')
-        speed = request.args.get('speed')
-        distance = request.args.get('distance')
-        status = request.args.get('status')
-        car = carData(command=command,speed=speed,distance=distance,status=status)
-        db.session.query(carData).delete()
-        db.session.commit()
-        db.session.add(car)
-        db.session.commit()
+        return carObject
 
-        return
-
-
-    
-   
-# def testCase1():
-#     testCar = Car("command",10,50,"obstacle")
-#     cc = CarController
-#     print(cc.detectObstacle(testCar))
-#     print(testCar.getStatus())
-
-
-
-        
-        
         
     
     
-    
-    
-# testCase1()  
 
-
-    
 
