@@ -61,7 +61,7 @@ def default():
     return render_template('index.html', session=0)
 
 @app.route('/index.html', methods=['GET', 'POST'])
-def connectCar():
+def connect():
     session.pop('ip', None)
     return render_template('index.html', session=0)
 
