@@ -13,6 +13,18 @@ app.config ['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///carData.sqlite3'
 
 db = SQLAlchemy(app)
 
+class carData(db.Model):
+   id = db.Column('car_id', db.Integer, primary_key = True)
+   command = db.Column(db.String(100))
+   speed = db.Column(db.String(50))  
+   distance = db.Column(db.String(200))
+   status = db.Column(db.String(10))
+
+def __init__(self, command, speed, distance,status):
+   self.command = command
+   self.speed = speed
+   self.distance = distance
+   self.status = status
 
 db.create_all()
 

@@ -1,6 +1,5 @@
-# class Instruction:
-from flask_sqlalchemy import SQLAlchemy
 
+from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 class carData(db.Model):
