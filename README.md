@@ -10,15 +10,19 @@ Our Team:
 (Ain Munirah Binte Makmor - ainmm00)
 
 ## How to Run
-- Install Python (at least Version 3.6)
-- Open command prompt in Administrator
-- Navigate command prompt to directory containing requirements.txt and app.py
-- Run `pip install -r requirements.txt` to install required modules
-- Run `python app.py` to run portal and keep command prompt running
-- Open Internet Edge or Google Chrome and enter the URL `http://localhost:5000/`
+- Download and install Python (at least Version 3.6) from https://www.python.org/downloads/
+- Open command-line interpreter (Eg. Command prompt in windows)
+- Navigate to the directory containing requirements.txt
+- Run `pip install -r requirements.txt` to install the required python modules as shown below:
+    - Werkzeug
+    - flask
+    - flask_sqlalchemy 
+    - coverage
+- Run `python app.py` in the same directory to run the web portal
+- Open an internet browser and enter the URL `http://localhost:5000/`
 
 ## Development Workflow
-All development work is done on each team member's individual feature branch. Each team member will be working on their allocated features on their individual feature branch. An additional `Document branch` was created to allow all members to modify the `README.md` on this branch. To merge into `dev branch`, a member has to open a pull request on Github which will be reviewed by either Jia Cheng (Tech Lead) or Wen Jie (Assistant Tech Lead). Only Jia Cheng will be allowed to merge `dev branch` into `master branch`. The main reason for allocating several features to an individual branch is for ease of tracking pertaining to M3 grading. Since it is an extremely small project, creating a huge number of branches may in fact harm the implementation proccess instead.
+All development work is done on each team member's individual feature branch. Each team member will be working on their allocated features on their individual feature branch. An additional `Document branch` was created to allow all members to modify the `README.md` on this branch. To merge into `dev branch`, a member has to open a pull request on Github which will be reviewed by either Jia Cheng (Tech Lead) or Wen Jie (Assistant Tech Lead). Only Jia Cheng will be allowed to merge `dev branch` into `master branch`. The main reason for allocating several features to an individual branch is for ease of tracking pertaining to M3 grading.
 
 <img src="https://user-images.githubusercontent.com/90367927/144000696-f2e36988-a9ba-4cb5-a3cd-8cd8de243464.png" width="550" height="650">
 
@@ -31,8 +35,11 @@ Each team member were assigned an individual feature branch to work on their all
 | ain |<ul><li>View Challenges Page</li><li>Maze Map Design & Generation</li><li>View Answer</li></ul>|
 
 
+## Updated State Diagram 
+![Compiled Diagrams - State Diagram (4)](https://user-images.githubusercontent.com/90367927/144738991-6aeacf79-6574-4659-9ae1-d055f384148e.png)
+
 ## User Acceptance Test
-- Embedded video running through all system test case we created (refined test case), 3 minutes long covering all system test case
+https://user-images.githubusercontent.com/90367927/144739272-dfabbf47-fa4d-4832-aacd-5e77b0bad50e.mp4
 
 ## Whitebox Testing
 - Conducted Whitebox Testing on the CarController class which interacts with multiple classes, Car, Instruction and CarIO.
