@@ -35,9 +35,42 @@ Each team member were assigned an individual feature branch to work on their all
 - Embedded video running through all system test case we created (refined test case), 3 minutes long covering all system test case
 
 ## Whitebox Testing
-- class demo test case (2 or more interactions with other class like Control, not Entity)
-- List test case for this class and where they reside in repo
-- Show code coverage stats for each test case and how we generated this stats, manual? IDE? Library?
-- Provide instructions on how to run the test suite
-- embeded gif/short video less than 1minute of test case run
+- Conducted Whitebox Testing on the CarController class which interacts with multiple classes, Car, Instruction and CarIO.
+- 4 test cases on the CarController class(car.py) which is located in test.py.
+- Test case 1: 
+    - Testing detectObstacle() and stopCar()
+![IMAGE 2021-12-05 02:42:01](https://user-images.githubusercontent.com/74708728/144720928-170cae23-485f-4546-b781-cb4c5910eb5a.jpg)
+- Test case 2:
+    -  Testing detectEndPoint() and stopCar()
+![IMAGE 2021-12-05 02:42:38](https://user-images.githubusercontent.com/74708728/144720953-a72c4488-c4c4-4f82-acc8-4a6ddbf14c6c.jpg)
+- Test case 3:
+    -  Testing executeInstruction
+![IMAGE 2021-12-05 02:43:02](https://user-images.githubusercontent.com/74708728/144720962-e074eb6b-9c4e-418e-aa7b-22569cd45afd.jpg)
+- Test case 4:
+    -  Testing sendData()
+![IMAGE 2021-12-05 02:43:14](https://user-images.githubusercontent.com/74708728/144720972-98f11fbd-3de5-4378-b13e-24331923a07a.jpg)
+
+ Coverage information generated using Coverage.py:
+> Coverage.py measures code coverage, typically during test execution.
+> It uses the code analysis tools and tracing hooks provided in the Python standard library to determine which lines are executable, and which have been executed.
+- Steps to run test suite:
+    - Install coverage for python:
+    ```
+    pip install coverage
+    ```
+    - Enter project folder:
+    ```
+    cd ict2201-p2-8
+    ```
+    - Run the testcase:
+    ```
+    coverage run test.py
+    ```
+    - Generate the coverage report: 
+    ```
+    coverage report
+    ```
+
+
+https://user-images.githubusercontent.com/74708728/144734922-b2413401-d4c4-421f-8ae4-d60333d50b91.mp4
 `
