@@ -73,4 +73,4 @@ Each team member were assigned an individual feature branch to work on their all
 
 
 https://user-images.githubusercontent.com/74708728/144734922-b2413401-d4c4-421f-8ae4-d60333d50b91.mp4
-`
+
