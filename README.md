@@ -42,7 +42,7 @@ Each team member were assigned an individual feature branch to work on their all
 https://user-images.githubusercontent.com/90367927/144739272-dfabbf47-fa4d-4832-aacd-5e77b0bad50e.mp4
 
 ## Whitebox Testing
-- Conducted Whitebox Testing on the CarController class which interacts with multiple classes, Car, Instruction and CarIO.
+- Conducted Whitebox Testing on the CarController class which interacts with multiple classes (Car, Instruction and CarIO).
 - 4 test cases on the CarController class(car.py) which is located in test.py.
 - Test case 1: 
     - Testing detectObstacle() and stopCar()
