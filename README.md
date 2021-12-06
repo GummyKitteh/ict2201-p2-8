@@ -15,14 +15,14 @@ Our Team:
 - Navigate to the directory containing requirements.txt
 - Run `pip install -r requirements.txt` to install the required python modules as shown below:
     - Werkzeug
-    - flask
-    - flask_sqlalchemy 
-    - coverage
+    - Flask
+    - Flask_sqlalchemy 
+    - Coverage
 - Run `python app.py` in the same directory to run the web portal
 - Open an internet browser and enter the URL `http://localhost:5000/`
 
 ## Development Workflow
-All development work is done on each team member's individual feature branch. Each team member will be working on their allocated features on their individual feature branch. An additional `Document branch` was created to allow all members to modify the `README.md` on this branch. To merge into `dev branch`, a member has to open a pull request on Github which will be reviewed by either Jia Cheng (Tech Lead) or Wen Jie (Assistant Tech Lead). Only Jia Cheng will be allowed to merge `dev branch` into `master branch`. The main reason for allocating several features to an individual branch is for ease of tracking pertaining to M3 grading.
+All development work is done on each team member's individual feature branch. Each team member will be working on their allocated features on their individual feature branch. These branches are named according to their individual names. An additional `Documentation branch` was created to allow all members to modify the `README.md` on this branch. To merge into `dev branch`, a member has to open a pull request on Github which will be reviewed by either Jia Cheng (Tech Lead) or Wen Jie (Assistant Tech Lead) before approving a merge. Only Jia Cheng will be allowed to merge `dev branch` into `master branch`. 
 
 <img src="https://user-images.githubusercontent.com/90367927/144000696-f2e36988-a9ba-4cb5-a3cd-8cd8de243464.png" width="550" height="650">
 
