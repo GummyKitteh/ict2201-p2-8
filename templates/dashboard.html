@@ -9,6 +9,7 @@
 <script src="blockly_compressed.js"></script>
 <script src="blocks_compressed.js"></script>
 <script defer src={{ url_for( 'static', filename='js/movement.js')}}></script>
+<script defer src={{ url_for( 'static', filename='js/challenge.js')}}></script>
 {% endblock %}
 {% block main %}
 <header style="background-color:#F3F1DA">
@@ -17,41 +18,50 @@
     </div>
 </header>
 
-<body style="background-color:#F3F1DA">
+<body style="background-color:#F3F1DA;">
 <div class="wrapper topWrap">
-    <div class="carStatus">
-        <h1>CAR STOPPED</h1>
+    <div class="carStatus" style="font-family: Consolas;">
+        <div class="sensorStats">
+            <div style="font-weight:bold;">Real Time Data:</div>
+            <div class="sensorNested">
+                {% for carData in carData %}
+            <div id="speed">Speed: {{ carData.speed }} (m/s)</div>
+            <div id="status"> Status: {{ carData.status }}</div>
+            <div id="distance">Distance: {{ carData.distance }} (m)</div>
+            {% endfor %}
+            </div>
+        </div>
     </div>
     <!--Coding Environment Opening-->
-    <div class="blockyLand topWrap" id="blocklyDiv">
+    <div class="blockyLand topWrap" id="blocklyDiv" data-toggle="tooltip" data-placement="top"
+         title="Drag and drop blocks of instructions from the left to the workspace on the right">
         <xml id="toolbox" style="display: none">
             <block type="controls_repeat_ext"></block>
+            <block type="math_number"></block>
             <block type="turn_right"></block>
             <block type="turn_left"></block>
             <block type="move_forward"></block>
         </xml>
     </div>
-
     <div class="ResetRun">
-        <div></div>
-        <button class="button" onclick="clearworkspace()" style="background-color: grey;">Reset</button>
-        <button class="button" onclick="runCode()" style="background-color: red;">Run</button>
+        <button type="button" class="btn btn-primary btn-sm btn-danger" onclick="clearworkspace()">
+            <a data-toggle="tooltip" data-placement="bottom" title="Click to clear the workspace">Reset</a>
+        </button>
+        <button type="button" class="btn btn-primary btn-sm btn-success" onclick="runCode()">
+            <a data-toggle="tooltip" data-placement="bottom" title="Click to execute the blocks of instructions">Run</a>
+        </button>
     </div>
     <!--Coding Environment Closing-->
-    <div class="sensorStats">
-        <div>Real Time Data:</div>
-        <div class="sensorNested">
-            <div>Speed: 0m/s</div>
-            <div>Orientation: Stationary</div>
-            <div>Distance: 0m</div>
-        </div>
-    </div>
-
-    <div class="pastHistory">
+    
+    <div class="pastHistory" style="font-family: Consolas;">
         <div class="pastNested">
-            <div>Past Instruction:</div>
-            <button class="button" style="background-color: #008CBA;">Run</button>
-            <div class="historyListing">Insert past instruction thingies</div>
+            <div style="font-weight:bold;">Past Instruction:</div>
+            <!--<button type="button" onclick="xmlToWorkspace()" class="btn btn-primary btn-sm" style="background-color: #008CBA;">Run</button>-->
+            <div class="historyListing">
+                <p id="firstRow"></p>
+                <p id="secondRow"></p>
+                <p id="thirdRow"></p>
+            </div>
         </div>
     </div>
 </div>
@@ -60,4 +70,5 @@
 {% endblock %}
 {% block footerscript %}
 <script defer src={{ url_for( 'static', filename='js/workspace.js')}}></script>
+<script>window.onload = function(){ viewPast(); };</script>
 {% endblock %}
