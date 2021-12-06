@@ -1,1 +1,4 @@
 flask
+werkzeug
+flask_sqlalchemy
+coverage
